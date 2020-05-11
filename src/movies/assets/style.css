@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url(img/background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;;
+}
+
+.moviesContainer {
+    background: rgba(0,0,0,0.5);
+    width: 80%;
+    margin:50px auto;
+    padding: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: brown;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.movie {
+    width: 20%;
+}
+
+.movie img {
+    max-height: 280px;
+    object-fit: cover;
+}
+
+.movie h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rating {
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    vertical-align: middle;
+}
+.star {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.9em;
+    margin-right: 0.9em;
+    margin-bottom: 1.2em;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.7em solid #fc0;
+    border-left: 0.3em solid transparent;
+    vertical-align: bottom;
+    /* Controlls the size of the stars. */
+    font-size: 12px;
+  }
+  .star:before, .star:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0.6em;
+    left: -1em;
+    border-right: 1em solid transparent;
+    border-bottom: 0.7em solid #fc0;
+    border-left: 1em solid transparent;
+    -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg);
+  }
+  .star:after {
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+  }
+
+  .btn {
+      color: #fff;
+      background: brown;
+      padding: 5px 10px;
+      margin: 5px;
+      border:none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+  }
+
+  .modalHeader {
+      border-bottom: 1px solid #ccc;
+      padding: 0 20px 20px;
+      color: brown;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      text-transform: uppercase;
+  }
+
+  
+
+  .formGroup {
+      margin:10px 0px
+  }
+
+  label {
+      display: inline-block;
+      width: 100px;
+  }
+
+  input {
+      width: 300px;
+      padding: 5px;
+      border:1px solid #ccc;
+  }
+
+  small {
+      color: gray;
+      font-size: 11px;
+      display: inline-block;
+      margin-left: 5px;
+  }
+  

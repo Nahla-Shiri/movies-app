@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import MoviesContainer from './movies/MoviesContainer.js';
 import * as serviceWorker from './serviceWorker';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MoviesContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );
