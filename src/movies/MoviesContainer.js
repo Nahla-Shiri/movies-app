@@ -21,14 +21,14 @@ const movies = [
     {
         title: 'Capharnaüm',
         poster: 'https://m.media-amazon.com/images/M/MV5BMmExNzU2ZWMtYzUwYi00YmM2LTkxZTQtNmVhNjY0NTMyMWI2XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,679,1000_AL_.jpg',
-        rating: 4,
+        rating: 3,
         year: 2018
     },
 
     {
         title: 'Batman Begins',
         poster: 'https://m.media-amazon.com/images/M/MV5BZmUwNGU2ZmItMmRiNC00MjhlLTg5YWUtODMyNzkxODYzMmZlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UY268_CR9,0,182,268_AL_.jpg',
-        rating: 3,
+        rating: 4,
         year: 2005
     },
 
@@ -72,46 +72,41 @@ const MoviesContainer = () => {
             rating: { rating }.rating ?{ rating }.rating : 1,
             year: { year }.year
         };
+        closeModal();
         return setMovie([...listOfMovies, ...[newMovie]]);
 
     }
 
-    function compareValues(key, order = 'asc') {
-        return function innerSort(a, b) {
-            if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-                return 0;
-            }
+    const handleChangeMovie = (event) => {
+        setMovie(movies);
+        const result = movies.filter(movie => movie.title == event.target.value);
+        return setMovie(result);
+    };
 
-            const varA = (typeof a[key] === 'string')
-                ? a[key].toUpperCase() : a[key];
-            const varB = (typeof b[key] === 'string')
-                ? b[key].toUpperCase() : b[key];
+    const handleChangeRating = (event) => {
+        setMovie(movies);
+        const rating =  movies.filter(movie => movie.rating == event.target.value);
+        return setMovie(rating);
+     };
 
-            let comparison = 0;
-            if (varA > varB) {
-                comparison = 1;
-            } else if (varA < varB) {
-                comparison = -1;
-            }
-            return (
-                (order === 'desc') ? (comparison * -1) : comparison
-            );
-        };
-    }
-
-    const sortBy = (item, order) => {
-        let sorted = listOfMovies.sort(compareValues(item, order));
-        return setMovie([...sorted]);
-
-
-    }
+   const handleReset = (event) => {
+    return setMovie(movies);
+   };
 
     return (
         <section className="moviesContainer">
             <header>
                 <button className="btn" onClick={openModal}>Add movie</button>
-                <button className="btn" onClick={() => sortBy("title", "asc")}>Sort by name</button>
-                <button className="btn" onClick={() => sortBy("rating", "desc")}>Sort by rating</button>
+                <button className="btn" onClick={handleReset}>Reset Filter</button>
+                <div className="selectGroup">
+                    <label className="btn">Filter by name</label>
+                    <select onChange={handleChangeMovie}>{movies.map((movie) => <option key={movie.title}>{movie.title}</option>)}</select>
+                </div>
+                <div className="selectGroup">
+                    <label className="btn">Filter by rating <span className="star"></span></label>
+                    <select value={null} onChange={handleChangeRating}>{movies.map((movie) => <option key={movie.rating}>{movie.rating}</option>)}</select>
+                </div>
+                
             </header>
             <div>
                 <h1>Movie Bank</h1>

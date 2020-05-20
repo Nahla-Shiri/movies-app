@@ -9,11 +9,29 @@ body {
     height: 100%;;
 }
 
+header {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+header .btn {
+    min-width: 220px;
+}
+
+label.btn {
+    vertical-align: middle;
+}
+
 .moviesContainer {
     background: rgba(0,0,0,0.5);
     width: 80%;
     margin:50px auto;
     padding: 50px;
+}
+
+select {
+    padding: 5px;
 }
 
 h1 {
