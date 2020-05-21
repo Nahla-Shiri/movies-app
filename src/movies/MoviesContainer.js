@@ -82,7 +82,7 @@ const MoviesContainer = () => {
        event.preventDefault();
         setMovie(movies);
         const search = document.querySelector('input[name="movie"]').value;
-        const  find =  movies.filter(movie => movie.title.toLowerCase() == search.toLowerCase());
+        const  find =  movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase()) );
        
         return setMovie(find);
     }; 
@@ -91,10 +91,13 @@ const MoviesContainer = () => {
         
         setMovie(movies);
         const rating =  movies.filter(movie => movie.rating == event.target.value);
-        return setMovie(rating);
+        
+        return rating.length >0 ? setMovie(rating) : setMovie(movies);
      };
 
-  
+    const handleReset = (event) => {
+        return setMovie(movies);
+    } 
 
     return (
         <section className="moviesContainer">
@@ -114,7 +117,7 @@ const MoviesContainer = () => {
                     <label className="btn">Filter by rating <span className="star"></span></label>
                     <select onChange={handleChangeRating}>{ratingTab.map((value) => <option key={value}>{value}</option>)}</select>
                 </div>
-                
+                <button className="btn" onClick={handleReset}>Reset</button>
             </header>
             <div>
                 <h1>Movie Bank</h1>
