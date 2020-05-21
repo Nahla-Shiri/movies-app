@@ -19,6 +19,18 @@ header .btn {
     min-width: 220px;
 }
 
+header form .btn {
+    min-width: 40px;
+    vertical-align: sub;
+}
+
+header form input {
+    padding: 8px;
+   
+}
+
+
+
 label.btn {
     vertical-align: middle;
 }
